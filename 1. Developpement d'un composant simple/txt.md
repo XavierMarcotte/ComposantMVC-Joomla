@@ -1,0 +1,122 @@
+## Comment ajouter un composant à Joomla ?
+
+Dans cet article, vous découvrirez comment créer et installer un composant de base pour Joomla. Dans cet exemple, nous allons travailler sur un composant : **Hello World**.
+
+Pour commencer, vous devez utiliser votre gestionnaire de fichiers préféré pour créer un dossier qui contiendra notre composant "Hello World!". Ce dossier pourra être placé n'importe où dans votre dossier système, dès lors qu'il est à l'extérieur du répertoire d'installation de votre site Joomla. Dans notre exemple, nous allons nommer ce dossier : `com_helloworld` mais il peut être appelé indifféremment.
+
+Ensuite et à l'intérieur de ce répertoire, nous avons besoin de créer des fichiers. À l'aide de votre gestionnaire de fichiers, il vous suffit de créer les fichiers suivants et dans lesquels vous devez ajouter, pour chaque fichier, le code source qui se trouve dans Détails des fichier.
+
+| No. | File Path                          | Description                                                                                        |
+| --: | ---------------------------------- | -------------------------------------------------------------------------------------------------- |
+|   1 | helloworld.xml                     | Ceci est un fichier (manifest) XML qui va indiquer à Joomla! la façon d'installer notre composant. |
+|   2 | site/helloworld.php                | Ceci est le point d'entrée pour le composant "Hello World!".                                       |
+|   3 | site/index.html                    | Empêche le serveur web de lister le contenu du répertoire.                                         |
+|   4 | admin/index.html                   | Empêche le serveur web de lister le contenu du répertoire.                                         |
+|   5 | admin/helloworld.php               | Ceci est le point d'entrée pour l'administration du composant "Hello World!".                      |
+|   6 | admin/sql/index.html               | Empêche le serveur web de lister le contenu du répertoire.                                         |
+|   7 | admin/sql/updates/index.html       | Empêche le serveur web de lister le contenu du répertoire.                                         |
+|   8 | admin/sql/updates/mysql/index.html | Empêche le serveur web de lister le contenu du répertoire.                                         |
+|   9 | admin/sql/updates/mysql/0.0.1.sql  | Fichier permettant d'initialiser le schéma de version du composant com_helloworld.                 |
+
+## Installation du composant
+
+À l'aide de votre gestionnaire de fichiers préféré, créez un fichier `.zip` de ce dossier. Dans le cadre de cet exemple, nous allons nommer ce fichier `com_helloworld.zip` mais encore une fois, ce fichier pourrait avoir été nommé d'une façon totalement différente.
+
+A ce stade, nous avons besoin d'installer le composant Hello World!. Il existe deux façons d'y parvenir qui sont décrites dans la page Installation d'une Extension. Ici, nous allons utiliser la méthode utilisant le gestionnaire d'extensions de Joomla.
+
+À l'aide de votre navigateur web préféré, accédez au panneau d'administration de votre site Joomla. L'adresse devrait être: `<votreSite>/joomla/administrator/index.php.` Pour notre exemple, nous allons naviguer vers `localhost/joomla/administrator/index.php`.
+Cliquez sur Extensions → Gérer → Installer → Archive à envoyer → Choisissez un fichier.
+Naviguez et sélectionnez votre fichier
+Cliquez sur **Envoyer & Installer**.
+Remarque : vous devriez voir un message s'afficher et vous permettant de savoir si l'installation est un succès ou non.
+
+Vous pouvez tester cette fonctionnalité de base du composant en renseignant la page Hello World! depuis le frontend du site et depuis l'interface d'administration.
+
+À l'aide de votre navigateur web préféré, naviguez jusqu'à la page Hello World! de votre composant depuis le frontend de votre site web. L'adresse devrait être : `<votreSite>/joomla/index.le php?option=com_helloworld`. Dans notre exemple, l'adresse `localhost/joomla/index.le php?option=com_helloworld` nous permettra d'accéder à cette page.
+À l'aide de votre navigateur web préféré, naviguez jusqu'à la page Hello World! de votre composant depuis le backend de votre site web. L'adresse devrait être : `<votreSite>/joomla/administrator/index.le php?option=com_helloworld`. Dans notre exemple, l'adresse `localhost/joomla/administrator/index.le php?option=com_helloworld` nous permettra d'accéder à cette page.
+Vous pouvez également remarquer que le composant "Hello World!" est visible dans l'interface d'administration de votre site Joomla! dans le menu Composants.
+
+## Détails du fichier
+
+**admin/sql/updates/mysql/0.0.1.sql** est un fichier vide permettant d'initialiser la version de schéma du composant com_helloworld.
+
+**helloworld.xml**
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+
+    <name>Hello World!</name>
+    <!-- The following elements are optional and free of formatting constraints -->
+    <creationDate>January 2018</creationDate>
+    <author>John Doe</author>
+    <authorEmail>john.doe@example.org</authorEmail>
+    <authorUrl>http://www.example.org</authorUrl>
+    <copyright>Copyright Info</copyright>
+    <license>License Info</license>
+    <!--  The version string is recorded in the components table -->
+    <version>0.0.1</version>
+    <!-- The description is optional and defaults to the name -->
+    <description>Description of the Hello World component ...</description>
+
+    <update> <!-- Runs on update; New since J2.5 -->
+    	<schemas>
+    		<schemapath type="mysql">sql/updates/mysql</schemapath>
+    	</schemas>
+    </update>
+
+    <!-- Site Main File Copy Section -->
+    <!-- Note the folder attribute: This attribute describes the folder
+    	to copy FROM in the package to install therefore files copied
+    	in this section are copied from /site/ in the package -->
+    <files folder="site">
+    	<filename>index.html</filename>
+    	<filename>helloworld.php</filename>
+    </files>
+
+    <administration>
+    	<!-- Administration Menu Section -->
+    	<menu link='index.php?option=com_helloworld'>Hello World!</menu>
+    	<!-- Administration Main File Copy Section -->
+    	<!-- Note the folder attribute: This attribute describes the folder
+    		to copy FROM in the package to install therefore files copied
+    		in this section are copied from /admin/ in the package -->
+    	<files folder="admin">
+    		<!-- Admin Main File Copy Section -->
+    		<filename>index.html</filename>
+    		<filename>helloworld.php</filename>
+    		<!-- SQL files section -->
+    		<folder>sql</folder>
+    	</files>
+    </administration>
+
+</extension>
+```
+
+**site/helloworld.php**
+
+`Hello World`
+**admin/helloworld.php**
+
+`Hello World administration`
+**index.html**
+
+commun à tous les dossiers
+
+`<html><body bgcolor="#FFFFFF"></body></html>`
+
+## Contenu du composant
+
+À ce stade du didacticiel, votre composant doit contenir les fichiers suivants :
+
+| No. | File Path                          | Description                                                                               |
+| --: | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+|   1 | helloworld.xml                     | Un fichier (manifest) XML qui va indiquer à Joomla! la façon d'installer notre composant. |
+|   2 | site/helloworld.php                | Point d'entrée pour le composant "Hello World!".                                          |
+|   3 | site/index.html                    | Empêche le serveur web de lister le contenu du répertoire.                                |
+|   4 | admin/index.html                   | Empêche le serveur web de lister le contenu du répertoire.                                |
+|   5 | admin/helloworld.php               | Point d'entrée pour l'administration du composant "Hello World!".                         |
+|   6 | admin/sql/index.html               | Empêche le serveur web de lister le contenu du répertoire.                                |
+|   7 | admin/sql/updates/index.html       | Empêche le serveur web de lister le contenu du répertoire.                                |
+|   8 | admin/sql/updates/mysql/index.html | Empêche le serveur web de lister le contenu du répertoire.                                |
+|   9 | admin/sql/updates/mysql/0.0.1.sql  | Fichier permettant d'initialiser le schéma de version du composant com_helloworld.        |
