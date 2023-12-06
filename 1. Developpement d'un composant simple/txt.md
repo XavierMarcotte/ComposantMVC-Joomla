@@ -24,16 +24,18 @@ Ensuite et à l'intérieur de ce répertoire, nous avons besoin de créer des fi
 
 A ce stade, nous avons besoin d'installer le composant Hello World!. Il existe deux façons d'y parvenir qui sont décrites dans la page Installation d'une Extension. Ici, nous allons utiliser la méthode utilisant le gestionnaire d'extensions de Joomla.
 
-À l'aide de votre navigateur web préféré, accédez au panneau d'administration de votre site Joomla. L'adresse devrait être: `<votreSite>/joomla/administrator/index.php.` Pour notre exemple, nous allons naviguer vers `localhost/joomla/administrator/index.php`.
-Cliquez sur Extensions → Gérer → Installer → Archive à envoyer → Choisissez un fichier.
-Naviguez et sélectionnez votre fichier
-Cliquez sur **Envoyer & Installer**.
+- À l'aide de votre navigateur web préféré, accédez au panneau d'administration de votre site Joomla. L'adresse devrait être: `<votreSite>/joomla/administrator/index.php.` Pour notre exemple, nous allons naviguer vers `localhost/joomla/administrator/index.php`.
+- Cliquez sur Extensions → Gérer → Installer → Archive à envoyer → Choisissez un fichier.
+- Naviguez et sélectionnez votre fichier
+- Cliquez sur **Envoyer & Installer**.
+
 Remarque : vous devriez voir un message s'afficher et vous permettant de savoir si l'installation est un succès ou non.
 
 Vous pouvez tester cette fonctionnalité de base du composant en renseignant la page Hello World! depuis le frontend du site et depuis l'interface d'administration.
 
-À l'aide de votre navigateur web préféré, naviguez jusqu'à la page Hello World! de votre composant depuis le frontend de votre site web. L'adresse devrait être : `<votreSite>/joomla/index.le php?option=com_helloworld`. Dans notre exemple, l'adresse `localhost/joomla/index.le php?option=com_helloworld` nous permettra d'accéder à cette page.
-À l'aide de votre navigateur web préféré, naviguez jusqu'à la page Hello World! de votre composant depuis le backend de votre site web. L'adresse devrait être : `<votreSite>/joomla/administrator/index.le php?option=com_helloworld`. Dans notre exemple, l'adresse `localhost/joomla/administrator/index.le php?option=com_helloworld` nous permettra d'accéder à cette page.
+- À l'aide de votre navigateur web préféré, naviguez jusqu'à la page Hello World! de votre composant depuis le frontend de votre site web. L'adresse devrait être : `<votreSite>/joomla/index.le php?option=com_helloworld`. Dans notre exemple, l'adresse `localhost/joomla/index.le php?option=com_helloworld` nous permettra d'accéder à cette page.
+- À l'aide de votre navigateur web préféré, naviguez jusqu'à la page Hello World! de votre composant depuis le backend de votre site web. L'adresse devrait être : `<votreSite>/joomla/administrator/index.le php?option=com_helloworld`. Dans notre exemple, l'adresse `localhost/joomla/administrator/index.le php?option=com_helloworld` nous permettra d'accéder à cette page.
+
 Vous pouvez également remarquer que le composant "Hello World!" est visible dans l'interface d'administration de votre site Joomla! dans le menu Composants.
 
 ## Détails du fichier
