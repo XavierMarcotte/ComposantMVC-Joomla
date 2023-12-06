@@ -96,9 +96,11 @@ Vous pouvez également remarquer que le composant "Hello World!" est visible dan
 **site/helloworld.php**
 
 `Hello World`
+
 **admin/helloworld.php**
 
 `Hello World administration`
+
 **index.html**
 
 commun à tous les dossiers
